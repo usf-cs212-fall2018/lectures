@@ -62,7 +62,6 @@ public class Problem1f {
 		}
 
 		elapsed = (System.currentTimeMillis() - elapsed) / rounds;
-
 		System.out.printf("Problem 1e seconds (avg): %.4f%n", (elapsed / 1000));
 	}
 }
