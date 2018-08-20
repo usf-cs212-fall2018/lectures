@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 public class Problem1e {
 
-	public static List<Integer> getMultiples(int value, int max) {
+	public static Set<Integer> getMultiples(int value, int max) {
 		// TODO
 		Set<Integer> multiples = new TreeSet<>();
 
