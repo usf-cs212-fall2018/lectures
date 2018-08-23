@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -24,10 +25,10 @@ public class Problem1e {
 	 * @param max   maximum value
 	 * @return multiples of {@code value} less than {@code max}
 	 */
-	public static List<Integer> getMultiples(int value, int max) {
+	public static Set<Integer> getMultiples(int value, int max) {
 		return IntStream.iterate(value, i -> i + value)
 				.limit(Math.floorDiv(max - 1, value)).boxed()
-				.collect(Collectors.toList());
+				.collect(Collectors.toSet());
 	}
 
 	/**
