@@ -1,4 +1,4 @@
-Files and Exceptions
+Data Structures
 =================================================
 
 These demos illustrate how to work with built-in data structures in Java.
