@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * This class demonstrates how to find all elements that start with a specific
@@ -118,7 +121,7 @@ public class FindDemo {
 	 * set that start with the specified letter. For example, how to find all of
 	 * the words in animals that starts with the letter "a".
 	 */
-	private static void setDemo() {
+	private static void tailsetDemo() {
 		/*
 		 * We need a sorted set for this example. We use Collections.addAll() to add
 		 * all of the animals to a set. This is more efficient than adding elements
@@ -138,9 +141,6 @@ public class FindDemo {
 			 * We will use the tailSet() method to generate a reference to our set
 			 * that starts in the correct place and then uses an enhanced for loop to
 			 * continue iteration.
-			 *
-			 * You can also try using ceiling() and higher() in a traditional for loop
-			 * instead.
 			 */
 			for (String animal : set.tailSet(letter)) {
 
@@ -169,14 +169,71 @@ public class FindDemo {
 		System.out.println();
 	}
 
+	/**
+	 * This example uses a traditional for loop, which allows us to move the
+	 * check if the word starts with our letter into the for loop condition. This
+	 * eliminates the need for the break.
+	 */
+	private static void setDemoTraditionalFor() {
+		TreeSet<String> set = new TreeSet<String>();
+		Collections.addAll(set, animals);
+
+		int iterations = 0;
+
+		// Uses an enhanced for loop to iterate through letters
+		for (String letter : letters) {
+
+			System.out.print(letter.toUpperCase() + ": ");
+
+			for (String animal = set.ceiling(letter);
+					animal != null && animal.startsWith(letter);
+					animal = set.higher(animal)) {
+
+				// Count this towards our total iterations
+				iterations++;
+
+				System.out.print(animal + " ");
+			}
+
+			System.out.println();
+		}
+
+		System.out.println("Iterations: " + iterations);
+		System.out.println();
+	}
+
+	/**
+	 * This uses a stream, but the inefficient approach of checking every element.
+	 * However, we can easily make it parallel.
+	 */
+	private static void streamApproach() {
+
+		// Uses an enhanced for loop to iterate through letters
+		for (String letter : letters) {
+
+			System.out.print(letter.toUpperCase() + ": ");
+
+			Set<String> words = Stream.of(animals)
+					//					.parallel();
+					.filter(w -> w.startsWith(letter))
+					.collect(Collectors.toSet());
+
+			for (String animal : words) {
+
+				System.out.print(animal + " ");
+			}
+
+			System.out.println();
+		}
+
+		System.out.println();
+	}
+
 	public static void main(String[] args) {
-		System.out.println("Inefficient Example:");
 		inefficientDemo();
-
-		System.out.println("ArrayList Example:");
 		listDemo();
-
-		System.out.println("TreeSet Example:");
-		setDemo();
+		tailsetDemo();
+		setDemoTraditionalFor();
+		streamApproach();
 	}
 }
