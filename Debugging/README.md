@@ -9,7 +9,6 @@ The following lecture slides are associated with this topic:
 
 - [Software Testing - Motivation](https://drive.google.com/open?id=0BxYofk0iB_upN09pQTBXbmxveGM)
 - [Software Testing - Approaches](https://drive.google.com/open?id=0BxYofk0iB_upQnNKQnRBU1dlbk0)
-
 - [Debugging - Assertions](https://drive.google.com/open?id=0BxYofk0iB_upbWRtbVd6bVVRZ0k)
 - [Debugging - Logging](https://drive.google.com/open?id=0BxYofk0iB_upZnc3LTYyOHlsbmM)
 
