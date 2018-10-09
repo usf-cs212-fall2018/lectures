@@ -1,0 +1,21 @@
+[20:00:55:333 debug] BoundedBuffer.java@131 Thread-1: get(): waiting until buffer not empty.
+[20:00:56:812 debug] BoundedBuffer.java@92  Thread-0: put(): adding a in buffer.
+[20:00:56:813 debug] BoundedBuffer.java@98  Thread-0: put(): buffer now has 1 elements.
+[20:00:56:814 debug] BoundedBuffer.java@99  Thread-0: put(): range is now (0, 1).
+[20:00:56:815 debug] BoundedBuffer.java@92  Thread-0: put(): adding b in buffer.
+[20:00:56:816 debug] BoundedBuffer.java@98  Thread-0: put(): buffer now has 2 elements.
+[20:00:56:817 debug] BoundedBuffer.java@99  Thread-0: put(): range is now (0, 2).
+[20:00:56:818 debug] BoundedBuffer.java@92  Thread-0: put(): adding c in buffer.
+[20:00:56:818 debug] BoundedBuffer.java@98  Thread-0: put(): buffer now has 3 elements.
+[20:00:56:819 debug] BoundedBuffer.java@99  Thread-0: put(): range is now (0, 3).
+[20:00:56:821 debug] BoundedBuffer.java@133 Thread-1: get(): woke up, checking buffer.
+[20:00:56:822 debug] BoundedBuffer.java@136 Thread-1: get(): getting a from buffer.
+[20:00:56:822 debug] BoundedBuffer.java@142 Thread-1: put(): buffer now has 2 elements.
+[20:00:56:823 debug] BoundedBuffer.java@143 Thread-1: put(): range is now (1, 3).
+[20:00:56:823 debug] BoundedBuffer.java@136 Thread-1: get(): getting b from buffer.
+[20:00:56:823 debug] BoundedBuffer.java@142 Thread-1: put(): buffer now has 1 elements.
+[20:00:56:824 debug] BoundedBuffer.java@143 Thread-1: put(): range is now (2, 3).
+[20:00:56:824 debug] BoundedBuffer.java@136 Thread-1: get(): getting c from buffer.
+[20:00:56:824 debug] BoundedBuffer.java@142 Thread-1: put(): buffer now has 0 elements.
+[20:00:56:825 debug] BoundedBuffer.java@143 Thread-1: put(): range is now (3, 3).
+[20:00:56:825 debug] BoundedBuffer.java@131 Thread-1: get(): waiting until buffer not empty.
