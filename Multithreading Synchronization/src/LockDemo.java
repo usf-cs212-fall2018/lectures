@@ -21,32 +21,32 @@ public class LockDemo {
 		 */
 
 		// TF TF TF TF
-		worker1 = new Worker(LockDemo.class);
-		worker2 = new Worker(LockDemo.Worker.class);
+//		worker1 = new Worker(LockDemo.class);
+//		worker2 = new Worker(LockDemo.Worker.class);
 
 		// TF TF TF TF
-		// worker1 = new Worker(staticLock);
-		// worker2 = new Worker(staticLock);
+//		worker1 = new Worker(staticKey);
+//		worker2 = new Worker(staticKey);
 
 		// TF TF TF TF
-		// worker1 = new Worker(LockDemo.class);
-		// worker2 = new Worker(LockDemo.class);
+//		worker1 = new Worker(LockDemo.class);
+//		worker2 = new Worker(LockDemo.class);
 
 		// TT FF TT FF
-		// worker1 = new Worker(outerLock);
-		// worker2 = new Worker(outerLock);
+//		worker1 = new Worker(instanceKey1);
+//		worker2 = new Worker(instanceKey1);
 
 		// TT FF TT FF
-		// worker1 = new Worker(this);
-		// worker2 = new Worker(this);
+//		worker1 = new Worker(this);
+//		worker2 = new Worker(this);
 
 		// TT TT FF FF
-		// worker1 = new Worker(new Object());
-		// worker2 = new Worker(new Object());
+//		worker1 = new Worker(new Object());
+//		worker2 = new Worker(new Object());
 
 		// TT TT FF FF
-		// worker1 = new Worker(outerLock);
-		// worker2 = new Worker(multiLock);
+		worker1 = new Worker(instanceKey1);
+		worker2 = new Worker(instanceKey2);
 
 		worker1.setName(name + "1");
 		worker2.setName(name + "2");
