@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout>
+				<Pattern>%message %n</Pattern>
+			</PatternLayout>
+		</Console>
+
+		<File name="FileLog" fileName="debug.log" append="false">
+			<PatternLayout>
+				<Pattern>[%date{HH:mm:ss:SSS} %-5level{lowerCase=true}] %thread: %message%n</Pattern>
+			</PatternLayout>
+		</File>
+	</Appenders>
+
+	<Loggers>
+		<Root level="ALL">
+			<AppenderRef ref="Console" level="INFO" />
+			<AppenderRef ref="FileLog" level="ALL" />
+		</Root>
+	</Loggers>
+</Configuration>
