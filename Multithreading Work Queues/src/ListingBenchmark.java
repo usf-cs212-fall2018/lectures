@@ -9,11 +9,16 @@ public class ListingBenchmark {
 	public static final int WARMUP_ROUNDS = 10;
 	public static final int TIMED_ROUNDS = 20;
 
+	/*
+	 * This is really meant to demonstrate just how bad we can make the runtime
+	 * with a poor multithreading implementation, and the difference using a
+	 * work queue can make on the runtime. However, even with the work queue, it
+	 * will likely be slower than single threading.
+	 */
+
 	public static void main(String[] args) {
 		// TODO Change this to a large directory on your system!
 		Path test = Paths.get("..").normalize();
-//		 Path test = Paths.get("..", "..").toAbsolutePath().normalize();
-
 		Set<Path> expected = SerialDirectoryListing.list(test);
 
 		new Benchmarker("Serial") {

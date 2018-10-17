@@ -9,12 +9,17 @@ import java.util.Set;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * The slightly better version of multithreading the {@link SerialDirectoryListing}
+ * class than {@link MultithreadedDirectoryListing} using the {@link WorkQueue}
+ * class rather than making a bunch of little worker threads.
+ */
 public class WorkQueueDirectoryListing {
 
 	private static final Logger log = LogManager.getLogger();
 
 	private final Set<Path> paths;
-	private final WorkQueue queue;
+	private final WorkQueue queue; // new!
 	private int pending;
 
 	private WorkQueueDirectoryListing() {
@@ -24,10 +29,14 @@ public class WorkQueueDirectoryListing {
 	}
 
 	private void parse(Path path) {
+		// TODO We no longer create workers... we create tasks!
 		queue.execute(new DirectoryTask(path));
 		join();
 	}
 
+	/*
+	 * A "task" in this context is a "Runnable" object versus a "Thread" object.
+	 */
 	private class DirectoryTask implements Runnable {
 
 		private final Path path;
@@ -47,6 +56,7 @@ public class WorkQueueDirectoryListing {
 					local.add(current);
 
 					if (Files.isDirectory(current)) {
+						// we add a new task the queue here instead of creating and starting a worker
 						queue.execute(new DirectoryTask(current));
 					}
 				}
@@ -96,6 +106,9 @@ public class WorkQueueDirectoryListing {
 	public static Set<Path> list(Path path) {
 		WorkQueueDirectoryListing workers = new WorkQueueDirectoryListing();
 		workers.parse(path);
+
+		// see that red box in Eclipse? it means your code is still running...
+		// don't forget to shut down the work queue!
 		workers.queue.shutdown();
 		return workers.paths;
 	}
