@@ -13,9 +13,9 @@ Look for the latest `9.x` release. The directory is sorted lexicographically not
 
 :bulb: _You no longer need to download the servlet `jar` files separately---they now come bundled in the `jetty-all` jar file._
 
-You may also want to consider the Apache Commons Lang library, which has several useful utilities:
+You may also want to consider the Apache Commons Text library, which has several useful utilities:
 
-- [`commons-lang3-3.x.x.jar`](https://commons.apache.org/proper/commons-lang/download_lang.cgi)
+- [`commons-text-1.x.x.jar`](http://commons.apache.org/proper/commons-text/download_text.cgi)
 
 See the [Adding User Party Libraries in Eclipse](https://usf-cs212-fall2018.github.io/guides/adding-user-libraries-in-eclipse.html) guide for details.
 
