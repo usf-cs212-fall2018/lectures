@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>%s</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+	<section class="hero is-primary is-bold">
+	  <div class="hero-body">
+	    <div class="container">
+	      <h1 class="title">
+	        Message Board
+	      </h1>
+	      <h2 class="subtitle">
+					<i class="fas fa-calendar-alt"></i>
+					&nbsp;Updated %s
+	      </h2>
+	    </div>
+	  </div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<h2 class="title">Messages</h2>
+
+				<div class="box">
+					<i class="fas fa-quote-left has-text-grey-light"></i> %s <i class="fas fa-quote-right has-text-grey-light"></i>
+					<p class="has-text-grey is-size-7 has-text-right"><em><i class="fas fa-user has-text-grey-light"></i> Posted by %s at %s.</em></p>
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<h2 class="title">Add Message</h2>
+
+			<form method="%s" action="%s">
+				<div class="field">
+					<label class="label">Name</label>
+					<div class="control has-icons-left">
+						<input class="input" type="text" name="%s" placeholder="Enter your name here.">
+						<span class="icon is-small is-left">
+							<i class="fas fa-user"></i>
+						</span>
+					</div>
+				</div>
+
+				<div class="field">
+				  <label class="label">Message</label>
+				  <div class="control">
+				    <textarea class="textarea" name="%s" placeholder="Enter your message here."></textarea>
+				  </div>
+				</div>
+
+				<div class="control">
+			    <button class="button is-primary" type="submit">
+						<i class="fas fa-comment"></i>
+						&nbsp;
+						Post Message
+					</button>
+			  </div>
+			</form>
+		</div>
+	</section>
+
+	<footer class="footer">
+	  <div class="content has-text-centered">
+	    <p>
+	      This request was handled by thread %s.
+	    </p>
+	  </div>
+	</footer>
+</body>
+</html>

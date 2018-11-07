@@ -12,6 +12,7 @@ public class MessageServer {
 		ServletHandler handler = new ServletHandler();
 		handler.addServletWithMapping(new ServletHolder(new MessageServlet()), "/pie");
 		handler.addServletWithMapping(new ServletHolder(new MessageServlet()), "/cake");
+		handler.addServletWithMapping(new ServletHolder(new BulmaMessageServlet()), "/bulma");
 
 		server.setHandler(handler);
 		server.start();
