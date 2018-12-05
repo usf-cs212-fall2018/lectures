@@ -1,6 +1,8 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -170,9 +172,14 @@ public class DatabaseConnector {
 	 */
 	public static void main(String[] args) {
 		try {
-			// TODO Change to database.properties
-			// (or whatever you named your properties file)!
-			DatabaseConnector test = new DatabaseConnector("database.properties");
+			String properties = "database.properties";
+
+			// Check for other properties file in command-line arguments
+			if (args.length > 0 && Files.exists(Paths.get(args[0]))) {
+				properties = args[0];
+			}
+
+			DatabaseConnector test = new DatabaseConnector(properties);
 			System.out.println("Connecting to " + test.uri);
 
 			if (test.testConnection()) {
