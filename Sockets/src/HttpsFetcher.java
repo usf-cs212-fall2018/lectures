@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.Socket;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -48,7 +49,7 @@ public class HttpsFetcher extends URLFetcher {
 				PrintWriter request = new PrintWriter(socket.getOutputStream());
 
 				// create a reader for the response
-				InputStreamReader input = new InputStreamReader(socket.getInputStream());
+				InputStreamReader input = new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8);
 				BufferedReader response = new BufferedReader(input);
 		) {
 			// write request to socket
